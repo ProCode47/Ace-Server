@@ -6,9 +6,11 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 var smtpTransport = require("nodemailer-smtp-transport");
 const axios = require("axios");
+const cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 async function mainMail(name, email, phone, budget, message) {
   const transporter = await nodeMail.createTransport(
